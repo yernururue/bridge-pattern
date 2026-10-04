@@ -4,6 +4,8 @@ Assignment 3, topic A: Drawing.
 
 Repository: https://github.com/yernururue/bridge-pattern
 
+Base commit: `9d0154f684b86888b5bf3c2f1ca4d8193160420e`
+
 Current stage: the two-by-two solution and runtime switching pass T1-T5. AsciiRenderer and T6-T7 will be added in the extension step.
 
 ## Structure
