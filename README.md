@@ -6,6 +6,8 @@ Repository: https://github.com/yernururue/bridge-pattern
 
 Base commit: `9d0154f684b86888b5bf3c2f1ca4d8193160420e`
 
+Extension commit: `9e3161113016934e5785d05d7e764672130806d6`
+
 Current stage: all seven checks are implemented, including runtime switching and the independent AsciiRenderer extension.
 
 ## Structure
