@@ -4,7 +4,7 @@ Assignment 3, topic A: Drawing.
 
 Repository: https://github.com/yernururue/bridge-pattern
 
-Initial stage: basic classes and one example. The T1-T7 demo and AsciiRenderer will be added in later steps. The working T1-T5 base commit has not been created yet.
+Current stage: the two-by-two solution and runtime switching pass T1-T5. AsciiRenderer and T6-T7 will be added in the extension step.
 
 ## Structure
 
@@ -20,17 +20,31 @@ Initial stage: basic classes and one example. The T1-T7 demo and AsciiRenderer w
 
 Shape stores a Renderer supplied through its constructor. Circle and Square delegate drawing through that interface. setImplementation(Renderer) replaces the renderer.
 
+The bridge field, constructor, execute() declaration, and setImplementation(Renderer) are in src/shapes/Shape.java. The delegated execute() methods are in Circle.java and Square.java. The T5 check is checkSwitch() in src/Main.java.
+
 ## Build and run
 
 Use JDK 17 or newer. No external dependencies are required.
 
 ```sh
 javac --release 17 -encoding UTF-8 -d out "@sources.txt"
-java -cp out Main
+java -cp out Main --demo
 ```
 
-Expected output:
+## Expected results
+
+| Check | Classes | Expected result |
+| --- | --- | --- |
+| T1 | Circle + VectorRenderer | VECTOR circle radius=2 |
+| T2 | Circle + RasterRenderer | RASTER circle radius=2 |
+| T3 | Square + VectorRenderer | VECTOR square side=3 |
+| T4 | Square + RasterRenderer | RASTER square side=3 |
+| T5 | Circle, VectorRenderer, RasterRenderer | Same object using ==; ID circle-switch and radius 2 stay unchanged; VECTOR output becomes RASTER output |
+
+Each check compares actual results with expected values. A failed check prints the expected values. The summary counts the checks that passed.
 
 ```text
-VECTOR circle radius=2
+SUMMARY: 5/5 PASS
 ```
+
+demo-output.txt contains the captured output. Running Main without --demo still prints the original Circle example.
